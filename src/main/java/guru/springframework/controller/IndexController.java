@@ -7,7 +7,9 @@ import guru.springframework.repository.UnitOfMeasureRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author zhaozh
@@ -30,6 +32,9 @@ public class IndexController {
         Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByDescription("Cup");
         System.out.println("Cat ID: " + category.get().getId());
         System.out.println("UOM ID:" + unitOfMeasure.get().getId());
+        Set<Category> categories = new HashSet<>();
+        categoryRepository.findAll().iterator().forEachRemaining(categories::add);
+        System.out.println(categories);
         return "index";
     }
 }
