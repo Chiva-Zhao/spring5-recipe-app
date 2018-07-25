@@ -20,7 +20,7 @@ entity Ingredient{
 }
 
 entity UnitOfMeasure {
-	uom String
+	description String
 }
 
 entity Notes{
