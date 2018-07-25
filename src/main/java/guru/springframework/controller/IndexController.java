@@ -4,6 +4,7 @@ import guru.springframework.domain.Category;
 import guru.springframework.domain.UnitOfMeasure;
 import guru.springframework.repository.CategoryRepository;
 import guru.springframework.repository.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,6 +18,7 @@ import java.util.Set;
  * @date 2018-7-25 14:29
  **/
 @Controller
+@Slf4j
 public class IndexController {
     private CategoryRepository categoryRepository;
     private UnitOfMeasureRepository unitOfMeasureRepository;
@@ -30,11 +32,11 @@ public class IndexController {
     public String index() {
         Optional<Category> category = categoryRepository.findByDescription("Chinese");
         Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByDescription("Cup");
-        System.out.println("Cat ID: " + category.get().getId());
-        System.out.println("UOM ID:" + unitOfMeasure.get().getId());
+        log.info("Cat ID: " + category.get().getId());
+        log.error("UOM ID:" + unitOfMeasure.get().getId());
         Set<Category> categories = new HashSet<>();
         categoryRepository.findAll().iterator().forEachRemaining(categories::add);
-        System.out.println(categories);
+        log.info(categories.toString());
         return "index";
     }
 }
