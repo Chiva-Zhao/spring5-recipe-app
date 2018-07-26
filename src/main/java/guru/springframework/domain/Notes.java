@@ -6,20 +6,21 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 
 /**
- * @author zhaozh
- * @version 1.0
- * @date 2018-7-24 16:35
- **/
+ * Created by jt on 6/13/17.
+ */
 @Data
-@EqualsAndHashCode(exclude = "recipe")
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @OneToOne
     private Recipe recipe;
+
     @Lob
-    private String notes;
+    private String recipeNotes;
 
 }

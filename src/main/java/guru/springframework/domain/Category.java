@@ -7,18 +7,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- * @author zhaozh
- * @version 1.0
- * @date 2018-7-25 10:55
- **/
+ * Created by jt on 6/13/17.
+ */
 @Data
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
+
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
