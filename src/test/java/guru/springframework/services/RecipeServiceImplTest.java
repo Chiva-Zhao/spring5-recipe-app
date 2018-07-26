@@ -2,7 +2,7 @@ package guru.springframework.services;
 
 
 import guru.springframework.domain.Recipe;
-import guru.springframework.repositories.RecipeRepository;
+import guru.springframework.repository.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

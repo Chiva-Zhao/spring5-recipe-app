@@ -1,6 +1,7 @@
 package guru.springframework.repositories;
 
 import guru.springframework.domain.UnitOfMeasure;
+import guru.springframework.repository.UnitOfMeasureRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
